@@ -1,8 +1,8 @@
 package com.paulajustino.jokenpoapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.paulajustino.jokenpoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         setClickListeners()
     }
 
@@ -23,5 +26,11 @@ class MainActivity : AppCompatActivity() {
             val activity2Intent = Intent(this, MainActivity2::class.java)
             startActivity(activity2Intent)
         }
+    }
+
+    // Outra forma de configurar o botao é atraves de um meta-data dentro da activity no manifest
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 }
