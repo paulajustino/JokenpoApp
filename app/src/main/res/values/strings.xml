@@ -3,4 +3,5 @@
     <string name="start_button_title">Iniciar activity</string>
     <string name="menu_save_title">Salvar</string>
     <string name="menu_settings_title">Configurações</string>
+    <string name="drawer_home_title">Inicio</string>
 </resources>
