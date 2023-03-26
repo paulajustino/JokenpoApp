@@ -5,7 +5,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.paulajustino.jokenpoapp.databinding.ActivityMain2Binding
@@ -13,8 +15,9 @@ import com.paulajustino.jokenpoapp.databinding.ActivityMain2Binding
 class MainActivity2 : AppCompatActivity() {
 
     private lateinit var binding: ActivityMain2Binding
-    lateinit var drawer: DrawerLayout
-    lateinit var navDrawer: NavigationView
+    private lateinit var drawer: DrawerLayout
+    private lateinit var navView: NavigationView
+    private lateinit var bottomNavView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +26,8 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(binding.root)
 
         setUpActionBar()
-        setUpDrawer()
+        setUpNavView()
+        setUpBottomNavView()
     }
 
     private fun setUpActionBar() {
@@ -32,15 +36,38 @@ class MainActivity2 : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_drawer)
     }
 
-    private fun setUpDrawer() {
+    private fun setUpNavView() {
         drawer = binding.root
-        navDrawer = binding.navView
+        navView = binding.navView
 
-        navDrawer.setNavigationItemSelectedListener { drawerMenuItem ->
+        navView.setNavigationItemSelectedListener { navMenuItem ->
             drawer.closeDrawers() // metodo que fecha o drawer menu depois da seleção do item
-            when (drawerMenuItem.itemId) {
-                R.id.drawer_home -> {
+            when (navMenuItem.itemId) {
+                R.id.nav_home -> {
                     onBackPressedDispatcher.onBackPressed()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun setUpBottomNavView() {
+        bottomNavView = binding.bottomNavView
+
+        bottomNavView.menu[0].isCheckable = false
+        bottomNavView.setOnItemSelectedListener { bottomNavMenuItem ->
+            when (bottomNavMenuItem.itemId) {
+                R.id.bottom_home -> {
+                    onBackPressedDispatcher.onBackPressed()
+                    true
+                }
+                R.id.bottom_profile -> {
+                    Snackbar.make(
+                        binding.root,
+                        getText(R.string.menu_profile_title),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                     true
                 }
                 else -> false
