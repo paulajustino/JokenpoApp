@@ -19,5 +19,10 @@
         <item name="windowActionBar">false</item>
         <!-- Habilita ou não o titulo do app na action bar -->
         <item name="windowNoTitle">true</item>
+        <item name="android:itemTextAppearance">@style/menuItem</item>
+    </style>
+
+    <style name="menuItem" parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>
