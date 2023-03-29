@@ -6,21 +6,21 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/jokenpo_icon_black"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.JokenpoApp.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
+            android:name=".ResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.JokenpoApp.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
+            android:theme="@style/Theme.JokenpoApp.NoActionBar"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".PlayerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JokenpoApp.NoActionBar"/>
+        <activity
+            android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.JokenpoApp.NoActionBar">
             <intent-filter>

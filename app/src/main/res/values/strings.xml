@@ -1,8 +1,17 @@
 <resources>
-    <string name="app_name">JokenpoApp</string>
-    <string name="start_button_title">Iniciar activity</string>
-    <string name="menu_save_title">Salvar</string>
-    <string name="menu_settings_title">Configurações</string>
+    <string name="app_name">Jokenpô</string>
+    <string name="start_button_title">Iniciar</string>
+
+
     <string name="menu_home_title">Inicio</string>
     <string name="menu_profile_title">Perfil</string>
+
+    <string name="home_title">Bem vinde ao Jokenpô!</string>
+    <string name="player_name">Jogador 1</string>
+    <string name="select_move_title">Selecionar jogada</string>
+    <string name="menu_player_title">Jogador</string>
+    <string name="menu_result_title">Resultado</string>
+    <string name="menu_restart_title">Reiniciar jogo</string>
+    <string name="result_title">Resultado</string>
+    <string name="result_description">O jogador xxx ganhou!</string>
 </resources>
